@@ -1,0 +1,305 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="user-scalable=no, width=device-width" />
+  <title>Red Ribbon Androids</title>
+  <script crossorigin src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script crossorigin src="https://unpkg.com/prop-types/prop-types.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.6.2/remarkable.min.js"></script>
+  <link rel="shortcut icon" href="/assets/img/favicon.png"/>
+  <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
+</head>
+<body>
+  <nav>
+    <div id="navi">
+	<div class="navlink"><a id="stat" href="/game">.:Statistics:.</a></div>
+	<div class="navlink"><a id="scoreButton" href="/scores">.:Top Scores:.</a></div>
+	<div class="navlink"><a id="gameButton" href="/game">.:Main:.</a></div>
+	<div class="navlink"><a id="modsButton" href="/game">.:Blueprints:.</a></div>
+    <div class="navlink"><a id="passwordButton" href="/passwordChange">.:User Account:.</a></div>
+	<div class="navlink"><a href="/logout"><span id="tiny" >..Log out..</span></a></div>
+    <img id="ribbon" src="images/RedRibbon.png" width=85px>
+	</div>
+  </nav>
+  <h3><span id="mainMessage"></span></h3>
+  <h3><span id="errorMessage"></span></h3>
+  <h3><span id="specialMessage"></span></h3>
+  <section id="makeStats">
+  </section>
+  <div id="statss">
+  </div>
+  <div id="allContent3">
+  <div id="container3">
+  <section id="scores">
+  </section>
+  </div>
+  </div>
+  <div id="profile">
+  </div>
+  <div id="modsDivv">
+  </div>
+  <section id="moreContent">
+  </section>
+  <div id="visuals">
+    <div id="loginBorder"></div>
+	<div id="borderSideBack">
+		<div id="proff">
+		<img id="ribbonProff" src="images/RedRibbon.png" width=120px>
+		<label htmlFor="profileChange">Change Profile: </label>
+	    <input id="profileChange" type="text" name="profileChange" placeholder="Image Link"/>
+		<button id="profileButton" class="formSubmit">Update</button>
+		</div>
+	</div>
+	<img id="borderSide" src="/assets/img/BorderSide.png">
+    <img id="border2" src="/assets/img/BorderLogin.png">
+	<div id="userScreen">{{username}}</div>
+  </div>
+  <div id="visuals2">
+    <div id="borderOther"></div>
+    <img id="border3" src="/assets/img/BorderOther.png">
+  </div>
+  <div id="visuals3">
+    <div id="imgT1">
+  <a href='#' id="img17T1" onclick="displayInfo('T1');"><img id="I17T1" src="/assets/img/simpleChip.png" alt="chip" height="70" width="70"/></a>
+  <a href='#' id="img18T1" onclick="displayInfo('T1');"><img id="I18T1" src="/assets/img/simpleChip.png" alt="chip" height="70" width="70"/></a>
+  </div>
+  <h3><span id="body17T1"></span></h3>
+  <h3><span id="body18T1"></span></h3>
+  <div id="imgT2">
+  <a href='#' id="img17T2" onclick="displayInfo('T2');"><img id="I17T2" src="/assets/img/simpleChip.png" alt="chip" height="70" width="70"/></a>
+  <a href='#' id="img18T2" onclick="displayInfo('T2');"><img id="I18T2" src="/assets/img/simpleChip.png" alt="chip" height="70" width="70"/></a>
+  </div>
+  <h3><span id="body17T2"></span></h3>
+  <h3><span id="body18T2"></span></h3>
+  <div id="imgT3">
+  <a href='#' id="img17T3" onclick="displayInfo('T3');"><img id="I17T3" src="/assets/img/simpleChip.png" alt="chip" height="70" width="70"/></a>
+  <a href='#' id="img18T3" onclick="displayInfo('T3');"><img id="I18T3" src="/assets/img/simpleChip.png" alt="chip" height="70" width="70"/></a>
+  </div>
+  <h3><span id="body17T3"></span></h3>
+  <h3><span id="body18T3"></span></h3>
+  <div id="imgT4">
+  <a href='#' id="img17T4" onclick="displayInfo('T4');"><img id="I17T4" src="/assets/img/simpleChip.png" alt="chip" height="70" width="70"/></a>
+  <a href='#' id="img18T4" onclick="displayInfo('T4');"><img id="I18T4" src="/assets/img/simpleChip.png" alt="chip" height="70" width="70"/></a>
+  </div>
+  <h3><span id="body17T4"></span></h3>
+  <h3><span id="body18T4"></span></h3>
+  <div id="imgT5">
+  <a href='#' id="img17T5" onclick="displayInfo('T5');"><img id="I17T5" src="/assets/img/simpleChip.png" alt="chip" height="70" width="70"/></a>
+  <a href='#' id="img18T5" onclick="displayInfo('T5');"><img id="I18T5" src="/assets/img/simpleChip.png" alt="chip" height="70" width="70"/></a>
+  </div>
+  <h3><span id="body17T5"></span></h3>
+  <h3><span id="body18T5"></span></h3>
+  <img id="divider1" src="/assets/img/BorderBar.png" alt="bar"/>
+  <button id="structureButton" class="formSubmit">Structural Update</button>
+  <h3><span id="nameData"></span></h3>
+  <h3><span id="contentData"></span></h3>
+  <h3><span id="contentData2"></span></h3>
+    <div id="modsDivv2">
+    <div id="modsDiv0">
+	  <h1 class="labled"style="font-size: 1.5em !important; padding-bottom: 20px !important">Modification Structure</h1>
+	  <label for="mods0"><p><b>Tier 1</b></p></label>
+	  <img class="nope1" src="/assets/img/nope.png" alt="no" width=12px />
+		<img class="check1" src="/assets/img/check.png" alt="yes" width=12px />
+	  <select name="mods0" id="mods0" size="1" style="width: 150px">
+	  </select>
+	  <img class="nope1" src="/assets/img/nope.png" alt="no" width=12px />
+		<img class="check1" src="/assets/img/check.png" alt="yes" width=12px />
+	  </div>
+	  <div id="modsDiv1">
+	    <label for="modsDiv1"><p><b>Tier 2</b></p></label>
+		<img class="nope2" src="/assets/img/nope.png" alt="no" width=12px />
+		<img class="check2" src="/assets/img/check.png" alt="yes" width=12px />
+	    <select name="mods1" id="mods1" size="1" style="width: 150px">
+	    </select>
+		<img src="/assets/img/plus.png" alt="plus" width=15px />
+	    <select name="mods2" id="mods2" size="1" style="width: 150px">
+        </select>
+		<img class="nope2" src="/assets/img/nope.png" alt="no" width=12px />
+		<img class="check2" src="/assets/img/check.png" alt="yes" width=12px />
+	  </div>
+	  <div id="modsDiv2">
+	    <label for="modsDiv2"><p><b>Tier 3</b></p></label>
+		<img class="nope3" src="/assets/img/nope.png" alt="no" width=12px />
+		<img class="check3" src="/assets/img/check.png" alt="yes" width=12px />
+	    <select name="mods3" id="mods3" size="1" style="width: 150px">
+	    </select>
+		<img class="nope3" src="/assets/img/nope.png" alt="no" width=12px />
+		<img class="check3" src="/assets/img/check.png" alt="yes" width=12px />
+	  </div>
+	  <div id="modsDiv3">
+	    <label for="modsDiv3"><p><b>Tier 4</b></p></label>
+		<img class="nope4" src="/assets/img/nope.png" alt="no" width=12px />
+		<img class="check4" src="/assets/img/check.png" alt="yes" width=12px />
+	    <select name="mods4" id="mods4" size="1" style="width: 150px">
+	    </select>
+		<img src="/assets/img/plus.png" alt="plus" width=15px />
+	    <select name="mods5" id="mods5" size="1" style="width: 150px">
+        </select>
+		<img class="nope4" src="/assets/img/nope.png" alt="no" width=12px />
+		<img class="check4" src="/assets/img/check.png" alt="yes" width=12px />
+	  </div>
+	  <div id="modsDiv4">
+	    <label for="modsDiv4"><p><b>Tier 5</b></p></label>
+		<img class="nope5" src="/assets/img/nope.png" alt="no" width=12px />
+		<img class="check5" src="/assets/img/check.png" alt="yes" width=12px />
+	    <select name="mods6" id="mods6" size="1" style="width: 150px">
+	    </select>
+		<img src="/assets/img/plus.png" alt="plus" width=15px />
+	    <select name="mods7" id="mods7" size="1" style="width: 150px">
+        </select>
+		<img class="nope5" src="/assets/img/nope.png" alt="no" width=12px />
+		<img class="check5" src="/assets/img/check.png" alt="yes" width=12px />
+	  </div>
+  </div>
+    <div id="borderOther4">
+	<img id="digital1" src="/assets/img/Digital2.png">
+	<img id="machine1" src="/assets/images/android18Machine2.png">
+	</div>
+	<div id="borderOther5">
+	<img id="digital2" src="/assets/img/Digital2.png">
+	<img id="machine2" src="/assets/images/android17Machine2.png">
+	</div>
+	<div id="borderOther6"></div>
+    <img id="border4" src="/assets/img/BorderOther.png">
+	<img id="border5" src="/assets/img/BorderOther.png">
+	<img id="border6" src="/assets/img/BorderOther.png">
+	<img id="ribbonMods" src="images/RedRibbon.png" width=240px>
+  </div>
+  <div id="backgound">
+    <canvas id="canvasBack">
+	    Get a real browser!
+	</canvas>
+  </div>
+  <h3><span id="userM">Account Data</span></h3>
+  <div id="allContent">
+  <div id="container">
+	<div id="main">
+		<canvas id="canvas1">
+			Get a real browser!
+		</canvas>
+		<canvas id="canvas2">
+			Get a real browser!
+		</canvas>
+	</div>
+	<div id="top">
+		<canvas id="canvas3">
+			Get a real browser!
+		</canvas>
+		
+	</div>
+	<div id="trueTop">
+		<canvas id="canvas4">
+			Get a real browser!
+		</canvas>
+		
+	</div>
+	<div id="videoPos5">
+	<video id="video5" width="1024" height="768">
+	<source src="media/Upgrade.mp4" type="video/mp4">
+	</source>
+	Your browser does not support the video tag.
+	</video>
+	</div>
+	<div id="videoPos4">
+	<video id="video4" width="1024" height="768">
+	<source src="media/Special.mp4" type="video/mp4">
+	</source>
+	Your browser does not support the video tag.
+	</video>
+	</div>
+	<div id="videoPos3">
+	<video id="video3" width="370" height="370">
+	<source src="media/Opening.mp4" type="video/mp4">
+	</source>
+	Your browser does not support the video tag.
+	</video>
+	</div>
+	<div id="videoPos2">
+	<video id="video2" width="1024" height="768">
+	<source src="media/Ending.mp4" type="video/mp4">
+	</source>
+	Your browser does not support the video tag.
+	</video>
+	</div>
+	<div id="videoPos">
+	<video id="video1" width="1024" height="768">
+	<source src="media/Intro.mp4" type="video/mp4">
+	</source>
+	Your browser does not support the video tag.
+	</video>
+	</div>
+	<div id="bigBorder">
+	<img src="images/screenBorder.png">
+	</img>
+	</div>
+	<div id="border">
+	<img src="images/BorderOpening.png">
+	</img>
+	</div>
+	<div id="bar">
+	<img src="images/blackBar.png">
+	</img>
+	</div>
+	<div id="smallBar1">
+	<img src="images/barTitle.png">
+	</img>
+	</div>
+	<div id="smallBar2">
+	<img src="images/barTitle.png">
+	</img>
+	</div>
+	</div>
+</div>
+	<script src='/assets/game.js'></script>
+	<section id="audioControls">
+		<audio id="bgAudio" src="media/fightTheme1.mp3" controls loop></audio>
+		<audio id="bgAudio2" src="media/endTheme1.mp3" controls loop></audio>
+		<audio id="bgAudio3" src="media/endTheme2.mp3" controls loop></audio>
+		<audio id="bgAudio4" controls loop></audio>
+		<audio id="bgAudio5" src="media/PauseTheme.mp3" controls loop></audio>
+		<audio id="bgAudioTutorial" src="media/tutorialTheme.mp3" controls loop></audio>
+		<audio id="effectAudio0" controls></audio>
+		<audio id="effectAudio1" controls></audio>
+		<audio id="effectAudio2" controls></audio>
+		<audio id="effectAudio3" controls></audio>
+		<audio id="effectAudio4" controls></audio>
+		<audio id="effectAudio5" controls></audio>
+		<audio id="effectAudio6" controls></audio>
+		<audio id="effectAudio7" controls></audio>
+		<audio id="effectAudio8" controls></audio>
+		<audio id="effectAudio9" controls></audio>
+		<audio id="effectAudio10" controls></audio>
+		<audio id="effectAudio11" controls></audio>
+		<audio id="effectAudio12" controls></audio>
+		<audio id="effectAudio13" controls></audio>
+		<audio id="effectAudio14" controls></audio>
+		<audio id="effectAudio15" controls></audio>
+		<audio id="effectAudio16" controls></audio>
+		<audio id="effectAudio17" controls></audio>
+		<audio id="effectAudio18" controls></audio>
+		<audio id="effectAudio19" controls></audio>
+		<audio id="effectAudio20" controls></audio>
+		<audio id="effectAudio21" controls></audio>
+		<audio id="effectAudio22" controls></audio>
+		<audio id="effectAudio23" controls></audio>
+		<audio id="effectAudio24" controls></audio>
+		<audio id="effectAudio25" controls></audio>
+		<audio id="effectAudio26" controls></audio>
+		<audio id="effectAudio27" controls></audio>
+		<audio id="effectAudio28" controls></audio>
+		<audio id="effectAudio29" controls></audio>
+		<audio id="effectAudio30" controls></audio>
+		<audio id="effectAudio31" controls></audio>
+		<audio id="effectAudio32" controls></audio>
+		<audio id="effectAudio33" controls></audio>
+		<audio id="effectAudio34" controls></audio>
+		<audio id="effectAudio35" controls></audio>
+		<audio id="effectAudio36" controls></audio>
+	</section>
+  <script src="/assets/bundle.js"></script>
+  <script src="/assets/preloadjs-0.6.1.min.js"></script>
+</body>
+</html>
