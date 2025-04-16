@@ -38,6 +38,7 @@
     "express": "^4.13.4",
     "express-handlebars": "^8.0.1",
     "express-session": "^1.15.6",
+    "glob": "^11.0.1",
     "helmet": "^8.1.0",
     "mongodb": "^6.15.0",
     "mongoose": "^8.13.2",
