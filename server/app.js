@@ -15,7 +15,7 @@ const csrf = require('csurf');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
-const dbURL = process.env.MONGODB_URI || "mongodb+srv://yggdrasill236:<Qwerty@123>@rr.u2sa085.mongodb.net/?retryWrites=true&w=majority&appName=RR" || 'mongodb://localhost/RedRibbonDB';
+const dbURL = process.env.MONGODB_URI || "mongodb://yggdrasill236:<Qwerty236>@ac-t4xb6rb-shard-00-00.u2sa085.mongodb.net:27017,ac-t4xb6rb-shard-00-01.u2sa085.mongodb.net:27017,ac-t4xb6rb-shard-00-02.u2sa085.mongodb.net:27017/?replicaSet=atlas-l7g2xo-shard-0&ssl=true&authSource=admin&retryWrites=true&w=majority&appName=RR" || 'mongodb://localhost/RedRibbonDB';
 
 mongoose.connect(dbURL, { useMongoClient: true }, (err) => {
   if (err) {

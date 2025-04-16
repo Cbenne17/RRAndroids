@@ -40,7 +40,7 @@
     "express-session": "^1.15.6",
     "helmet": "^8.1.0",
     "mongodb": "^6.15.0",
-    "mongoose": "^8.13.2",
+    "mongoose": "^4.13.20",
     "serve-favicon": "^2.3.0",
     "underscore": "^1.8.3"
   },
