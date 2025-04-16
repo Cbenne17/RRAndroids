@@ -44,9 +44,10 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-preset-env": "^0.0.0",
-    "babel-preset-react": "^6.24.1",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "nodemon": "^1.11.0"
   }
 }
