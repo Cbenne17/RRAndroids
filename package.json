@@ -8,8 +8,8 @@
   "description": "Project2",
   "main": "./server/app.js",
   "scripts": {
-    "buildLoginBundle": "babel ./client/login ./client/helper --presets react --out-file ./hosted/loginBundle.js",
-    "buildAppBundle": "babel ./client/app --presets react --out-file ./hosted/bundle.js",
+    "buildLoginBundle": "babel ./client/login ./client/helper --out-file ./hosted/loginBundle.js",
+    "buildAppBundle": "babel ./client/app --out-file ./hosted/bundle.js",
     "buildGame": "babel ./client/js --presets react --out-file ./hosted/game.js",
     "build": "npm run buildLoginBundle && npm run buildAppBundle",
     "watchLoginBundle": "babel --watch ./client/login ./client/helper --presets react --out-file ./hosted/loginBundle.js",
@@ -29,6 +29,7 @@
   "author": "Christopher Bennett",
   "license": "Apache 2.0",
   "dependencies": {
+    "@babel/runtime": "^7.27.0",
     "body-parser": "^1.15.0",
     "compression": "^1.6.1",
     "connect-redis": "^8.0.2",
@@ -49,7 +50,6 @@
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-react": "^7.26.3",
     "babel-loader": "^10.0.0",
-    "nodemon": "^3.1.9",
-    "webpack": "^5.99.5"
+    "nodemon": "^3.1.9"
   }
 }

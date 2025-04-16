@@ -7,102 +7,116 @@ var handleLogin = function handleLogin(e) {
     handleError("Username or password is empty");
     return false;
   }
-
   sendAjax('POST', $("#loginForm").attr("action"), $("#loginForm").serialize(), redirect);
-
   return false;
 };
 
 // checks and posts signup data to server
 var handleSignup = function handleSignup(e) {
   e.preventDefault();
-
   if ($("#user").val() == '' || $("#pass").val() == '' || $("pass2").val() == '') {
     handleError("All fields are required");
     return false;
   }
-
   if ($("#pass").val() !== $("#pass2").val()) {
     handleError("Passwords do not match");
     return false;
   }
-
   sendAjax('POST', $("#signupForm").attr("action"), $("#signupForm").serialize(), redirect);
-
   return false;
 };
 
 // builds the login form
 var LoginWindow = function LoginWindow(props) {
-  return React.createElement(
-    "form",
-    { id: "loginForm", name: "loginForm",
-      onSubmit: handleLogin,
-      action: "/login",
-      method: "POST",
-      className: "mainForm"
-    },
-    React.createElement(
-      "label",
-      { htmlFor: "username" },
-      "Username: "
-    ),
-    React.createElement("input", { id: "user", type: "text", name: "username", maxLength: "15", placeholder: "username" }),
-    React.createElement(
-      "label",
-      { htmlFor: "pass" },
-      "Password: "
-    ),
-    React.createElement("input", { id: "pass", type: "password", name: "pass", placeholder: "password" }),
-    React.createElement("input", { type: "hidden", name: "_csrf", value: props.csrf }),
-    React.createElement("input", { className: "formSubmit", type: "submit", value: "Access" })
-  );
+  return /*#__PURE__*/React.createElement("form", {
+    id: "loginForm",
+    name: "loginForm",
+    onSubmit: handleLogin,
+    action: "/login",
+    method: "POST",
+    className: "mainForm"
+  }, /*#__PURE__*/React.createElement("label", {
+    htmlFor: "username"
+  }, "Username: "), /*#__PURE__*/React.createElement("input", {
+    id: "user",
+    type: "text",
+    name: "username",
+    maxLength: "15",
+    placeholder: "username"
+  }), /*#__PURE__*/React.createElement("label", {
+    htmlFor: "pass"
+  }, "Password: "), /*#__PURE__*/React.createElement("input", {
+    id: "pass",
+    type: "password",
+    name: "pass",
+    placeholder: "password"
+  }), /*#__PURE__*/React.createElement("input", {
+    type: "hidden",
+    name: "_csrf",
+    value: props.csrf
+  }), /*#__PURE__*/React.createElement("input", {
+    className: "formSubmit",
+    type: "submit",
+    value: "Access"
+  }));
 };
 
 // builds the signup form
 var SignupWindow = function SignupWindow(props) {
-  return React.createElement(
-    "form",
-    { id: "signupForm",
-      name: "signupForm",
-      onSubmit: handleSignup,
-      action: "/signup",
-      method: "POST",
-      className: "mainForm"
-    },
-    React.createElement(
-      "label",
-      { htmlFor: "username" },
-      "Username: "
-    ),
-    React.createElement("input", { id: "user", type: "text", name: "username", maxLength: "15", placeholder: "username" }),
-    React.createElement(
-      "label",
-      { htmlFor: "pass" },
-      "Password: "
-    ),
-    React.createElement("input", { id: "pass", type: "password", name: "pass", placeholder: "password" }),
-    React.createElement(
-      "label",
-      { htmlFor: "pass2" },
-      "Password: "
-    ),
-    React.createElement("input", { id: "pass2", type: "password", name: "pass2", placeholder: "retype password" }),
-    React.createElement("input", { type: "hidden", name: "_csrf", value: props.csrf }),
-    React.createElement("input", { className: "formSubmit", type: "submit", value: "Create" })
-  );
+  return /*#__PURE__*/React.createElement("form", {
+    id: "signupForm",
+    name: "signupForm",
+    onSubmit: handleSignup,
+    action: "/signup",
+    method: "POST",
+    className: "mainForm"
+  }, /*#__PURE__*/React.createElement("label", {
+    htmlFor: "username"
+  }, "Username: "), /*#__PURE__*/React.createElement("input", {
+    id: "user",
+    type: "text",
+    name: "username",
+    maxLength: "15",
+    placeholder: "username"
+  }), /*#__PURE__*/React.createElement("label", {
+    htmlFor: "pass"
+  }, "Password: "), /*#__PURE__*/React.createElement("input", {
+    id: "pass",
+    type: "password",
+    name: "pass",
+    placeholder: "password"
+  }), /*#__PURE__*/React.createElement("label", {
+    htmlFor: "pass2"
+  }, "Password: "), /*#__PURE__*/React.createElement("input", {
+    id: "pass2",
+    type: "password",
+    name: "pass2",
+    placeholder: "retype password"
+  }), /*#__PURE__*/React.createElement("input", {
+    type: "hidden",
+    name: "_csrf",
+    value: props.csrf
+  }), /*#__PURE__*/React.createElement("input", {
+    className: "formSubmit",
+    type: "submit",
+    value: "Create"
+  }));
 };
 
 // react call to display login form
 var createLoginWindow = function createLoginWindow(csrf) {
   $("#mainMessage").text("Log in");
-  ReactDOM.render(React.createElement(LoginWindow, { csrf: csrf }), document.querySelector("#content"));
+  ReactDOM.render(/*#__PURE__*/React.createElement(LoginWindow, {
+    csrf: csrf
+  }), document.querySelector("#content"));
 };
 
 // react call to display signup form
 var createSignupWindow = function createSignupWindow(csrf) {
   $("#mainMessage").text("Regester");
-  ReactDOM.render(React.createElement(SignupWindow, { csrf: csrf }), document.querySelector("#content"));
+  ReactDOM.render(/*#__PURE__*/React.createElement(SignupWindow, {
+    csrf: csrf
+  }), document.querySelector("#content"));
 };
 
 // initialize setup data
@@ -131,12 +145,10 @@ var setup = function setup(csrf) {
     createLoginWindow(csrf);
     return false;
   });
-
   loginButton.focus();
 
   //Begin update loop
   requestAnimationFrame(update);
-
   createLoginWindow(csrf); //default view
 };
 
@@ -146,7 +158,6 @@ var getToken = function getToken() {
     setup(result.csrfToken);
   });
 };
-
 $(document).ready(function () {
   getToken();
 });
@@ -200,7 +211,6 @@ function populateMods() {
   modsList[5] = document.querySelector("#mods5");
   modsList[6] = document.querySelector("#mods6");
   modsList[7] = document.querySelector("#mods7");
-
   if (selectedGroup > 0) {
     for (var j = 0; j < 8; j++) {
       for (var i = 0; i < modules[selectedGroup].length; i++) {
@@ -214,9 +224,7 @@ function populateMods() {
 //Function to update currently used modules
 function updateMods() {
   changesMade = true;
-
   var selected = new Array();
-
   selected[0] = document.querySelector("#mods0").selectedIndex;
   selected[1] = document.querySelector("#mods1").selectedIndex;
   selected[2] = document.querySelector("#mods2").selectedIndex;
@@ -248,14 +256,12 @@ function updateMods() {
       modsList[j].selectedIndex = selected[j];
     }
   }
-
   setActiveMods();
 }
 
 //Function to update currently used modules for display only
 function displayUpdateMods() {
   var selected = new Array();
-
   selected[0] = document.querySelector("#mods0").selectedIndex;
   selected[1] = document.querySelector("#mods1").selectedIndex;
   selected[2] = document.querySelector("#mods2").selectedIndex;
@@ -290,17 +296,15 @@ function displayUpdateMods() {
 }
 
 // main site update loop
-var update = function update() {
-
+var _update = function update() {
   //Maintain update loop
-  requestAnimationFrame(update);
+  requestAnimationFrame(_update);
 
   //Set current time
   var now = new Date().getTime();
 
   //Update runs here
   if (now - lastExecution > 1000 / fps) {
-
     //Fade effect for inner layer
     if (innerAlpha > .35 && innerIncreasing === true) {
       innerIncreasing = false;
@@ -323,7 +327,6 @@ var update = function update() {
       } else {
         changeFlow = true;
       }
-
       if (changeFlow === true && flowTimer > 0) {
         flowTimer--;
         flowPosition += 2;
@@ -331,7 +334,6 @@ var update = function update() {
         changeFlow = false;
       }
     }
-
     if (changesMade === true) {
       if (blinkTimer < 20) {
         structureButton.className = "formSubmit";
@@ -341,7 +343,6 @@ var update = function update() {
         blinkTimer = 0;
       }
     }
-
     if (recentMod === true) {
       if (blinkTimer2 < 10) {
         modsButton.className = "";
@@ -371,7 +372,6 @@ var update = function update() {
     ctx[0].translate(0, flowPosition);
     ctx[0].drawImage(circuitry, 0, 0);
     ctx[0].restore();
-
     lastExecution = new Date().getTime();
   }
 };
@@ -380,7 +380,6 @@ var update = function update() {
 var image = new Image();
 image.src = "images/circuitry.png";
 var circuitry = image;
-
 var fps = 20;
 var lastExecution = new Date().getTime();
 
@@ -394,7 +393,6 @@ var flowPosition = 0;
 var changeFlow = false;
 var blinkTimer = 0;
 var blinkTimer2 = 0;
-
 var paused = false;
 
 // mod and score variables
@@ -407,24 +405,18 @@ var recentMod = false;
 // needed globals
 var canvas = new Array();
 var ctx = new Array();
-
 var user = '';
 var profilePic = '';
 var currentVersion = 1;
 var progressType = "/assets/images/RedRibbonRust.png";
-
 var randomPic = 0;
-
 var statsScreen = false;
-
 var upVidPlay = false;
 var upVidTimer = 0;
-
 var modules = new Array();
 modules[0] = "";
 modules[1] = [""];
 
 //Turn mods into an array
 var modsList = new Array();
-
 var openSong = document.getElementById("openSong");
