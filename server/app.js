@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const expressHandlebars = require('express-handlebars');
 const session = require('express-session');
-const RedisStore = require('connect-redis')(session);
+//const RedisStore = require('connect-redis')(session);
 const url = require('url');
 const csrf = require('csurf');
 
@@ -51,11 +51,11 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(session({
   key: 'sessionid',
-  store: new RedisStore({
+  /*store: new RedisStore({
     host: redisURL.hostname,
     port: redisURL.port,
     pass: redisPASS,
-  }),
+  }),*/
   secret: 'RR Androids',
   resave: true,
   saveUninitialized: true,
@@ -63,10 +63,10 @@ app.use(session({
     httpOnly: true,
   },
 }));
-app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
-app.set('views', `${__dirname}/../views`);
-app.use(cookieParser());
+//app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }));
+//app.set('view engine', 'handlebars');
+//app.set('views', `${__dirname}/../views`);
+//app.use(cookieParser());
 
 // csrf must come AFTER app.use(cookieParser());
 // and app.use(session({ ....... });
