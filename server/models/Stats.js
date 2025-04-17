@@ -6,7 +6,7 @@ let StatsModel = {};
 
 // mongoose.Types.ObjectID is a function that
 // converts string ID to real mongo ID
-const convertId = mongoose.Types.ObjectId;
+//const convertId = new mongoose.Types.ObjectId()
 const setName = (name) => _.escape(name).trim();
 
 // schematic for stats data in mongo
@@ -390,8 +390,10 @@ StatsSchema.statics.toAPI = (doc) => ({
 
 // Find all stats data for owner
 StatsSchema.statics.findByOwner = (ownerId, callback) => {
+  const hexString = ownerId.toString(16).padStart(24, '0'); // Convert to hexadecimal and pad with zeros
+  const convertId = new mongoose.Types.ObjectId(hexString)
   const search = {
-    owner: convertId(ownerId),
+    owner: convertId,
   };
 
   return StatsModel.find(search).select('').exec(callback);
@@ -408,8 +410,10 @@ StatsSchema.statics.findByOwner = (ownerId, callback) => {
 
 // remove old stats data
 StatsSchema.statics.removeByOwner = (ownerId, callback) => {
+  const hexString = ownerId.toString(16).padStart(24, '0'); // Convert to hexadecimal and pad with zeros
+  const convertId = new mongoose.Types.ObjectId(hexString)
   const search = {
-    owner: convertId(ownerId),
+    owner: convertId,
   };
 
   return StatsModel.deleteMany(search, callback);
